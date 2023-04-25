@@ -1,0 +1,31 @@
+container tools:
+ - docker
+ - rkt ("rocket" by CoreOS) NB CoreOS is a linux dist designed specifically for running containers
+ - containerd NB this is a simplified container runtime with fewer features than docker (eg no image mgt)
+
+container orchestration tools (sometimes consider container mgt systems:
+ - kubernetes
+ - docker swarm (native to docker)
+ - marathon  - based on apache mesos
+ - nomad - open source software produced by hashicorp
+ - CLOUD ONLY: amazon elastic container service (ECS)
+ - CLOUD ONLY: amazon ecs for kubernetes (kubernetes on top of ECS)
+ - CLOUD ONLY: azure kubernetes service (AKS)
+ - CLOUD ONLY: Google Kubernetes Engine (GKE)
+
+use cases:
+ - microservices - small services (apps) that combine to make a big application, usually through apis...
+    # each microservice can be written in different languages / use different technologies and run seperately as lightweight, scalable, always available containerised apps. resilient
+ - cloud transformation - make it easier to go to the cloud - and cheaper
+ - automated scaling - containers spin up and down quicker in response to demand. they also use (reserve) less compute
+ - continuous deployment pipelines - can deliver code / "feature updates" updates more quickly and more often
+    # also helps tetsing - cos testing and prod envs are much more similar - or in fact identical!
+ - self-healing applications
+    # rather than reboot the server, automatically destroy the container and spin up a new, fresh version of the original
+ - developer visibility
+    # of things that went wrong in prod if something did (because priority in prod is to fix, not diagnose/analyse). In dev its the opposite.
+
+containers in the cloud:
+ - "private cloud" = cloud like practices on own "on-prem" servers
+ - "public cloud"  = on google's, azure, amazon's servers
+ - containers are supported by cloud providers cos it works for both us and them - us means using/reserving their compute less, them cos it means buying fewer machines to serve many companies
